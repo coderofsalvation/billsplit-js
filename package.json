@@ -8,7 +8,7 @@
   },
   "scripts": {
     "gendoc": "/bin/bash -c '[[ ! -d doc ]] && mkdir doc ; for i in lib/*; do out=${i/lib/doc}.md; node_modules/.bin/markdox $i -o $out;  done' ; bashdown doc/model.js.md",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cake test"
   },
   "repository": {
     "type": "git",
