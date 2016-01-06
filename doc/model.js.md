@@ -1,26 +1,11 @@
 
 
 <!-- Start lib/model.js -->
+## lib/model.js
 
-The model manages (user) logic & data, which 
-eventually gets written/read from a store.
-It uses an adapter instead writing directly to the store.
-
-Description
-
-### Params:
-
-* *{}* o
-
-### Return:
-
-* CallExpression
-
-Description
-
-### Return:
-
-* BinaryExpression
+> The model manages (user) logic & data, which 
+> eventually gets written/read from a store.
+> It uses an adapter instead writing directly to the store.
 
 ## schema
 
@@ -28,81 +13,50 @@ Description
 > `.data`    contains the consolidated data of the store 
 > `.adapter` contains the currently used adapter
 
-## factory
+## factory.create(type, data)
 
-> `factory` is a micro-factory: slap a module on top of given data
+> `factory` is a micro-factory: slap a module on top of given data 
+> `factory.create` returns an object after requiring `./type`-module and 
+> extends the module with the passed data 
 
-## create({}, {})
+__parameters:__
 
-`factory.create` returns an object after requiring `./type`-module and 
-extends the module with the passed data
+* **String** *type* (pass 'user' to resolve './user.js' e.g.)
+* **String** *data* (userdata described from getUserData())
 
-### Params:
+## init(adapter)
 
-* *{}* type
-* *{}* data
+> initialize model with store adapter (like `adapters.Ambrogio` )
+>     { read: function(key)
+>       write: function(key,value)
+>       update: function(key,value)
+>       delete: function(key) }
 
-### Return:
+__parameters:__
 
-* obj
-
-## init({})
-
-initialize model with adapter (like `adapters.Ambrogio` )
-
-### Params:
-
-* *{}* adapter
-
-### Return:
-
-* 
-
-## initStore()
-
-Description
-
-### Return:
-
-* results
+* **Adapter** *adapter* 
 
 ## save()
 
-Updates/Writes model `data` to adapter
+> Updates/Writes model `data` to adapter
 
-### Return:
+## getUserData(name)
 
-* CallExpression
+> 
 
-## getUserData({})
+__parameters:__
 
-Description
+* **String** *name* of user
 
-### Params:
+__returns:__
 
-* *{}* name
-
-### Return:
-
-* LogicalExpression
-
-## createUserByName({})
-
-Description
-
-### Params:
-
-* *{}* name
-
-### Return:
-
-* CallExpression
+* user object (-functions)
 
 ## createUser
 
-create a user
-
-generated from `properties.user` in [schemafile lib/schema.js](../lib/schema.js) :
+> create a user
+> 
+> generated from `properties.user` in [schemafile lib/schema.js](../lib/schema.js) :
 
     {
       "aliases": [],
@@ -110,56 +64,56 @@ generated from `properties.user` in [schemafile lib/schema.js](../lib/schema.js)
       "owes": []
     }
 
-### Return:
+__returns:__
 
 * user object (+functions) or null (see schema)
 
-## getUserById({})
+## getUserById()
 
-Description
+> 
 
-### Params:
+__returns:__
 
-* *{}* id
-
-### Return:
-
-* CallExpression
+* user object (+functions) or null
 
 ## createUser
 
-### Return:
+> 
+
+__returns:__
 
 * user object (+functions)
 
 ## getUser
 
-### Return:
+> 
+
+__returns:__
 
 * user object (+functions)
 
 ## getOrCreateUser
 
-### Return:
+> 
+
+__returns:__
 
 * user object (+functions)
 
 ## getUsers
 
-### Return:
+> 
+
+__returns:__
 
 * Array with user objects (+functions)
 
 ## getDataFlat()
 
-returns `data` store with expanded aliases of names
-
-### Return:
-
-* data
+> returns `data` store with expanded aliases of names
 
 ## bindAll()
 
-this bind functions to itself to preserve `this` ref
+> this bind functions to itself to preserve `this` ref
 
 <!-- End lib/model.js -->

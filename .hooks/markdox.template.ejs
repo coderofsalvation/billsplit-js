@@ -1,0 +1,49 @@
+<? docfiles.forEach(function(doc) { ?>
+
+  <!-- Start <?= doc.filename ?> -->
+  ## <?= doc.filename ?>
+
+  <? doc.javadoc.forEach(function(comment) { ?>
+    <? if (!comment.ignore) { ?>
+      <? if (comment.name) { ?>
+        <? if (comment.isMethod || comment.isFunction) { ?>
+          #### <?= comment.name ?>(<?= comment.paramStr ?>)
+        <? } else { ?>
+          #### <?= comment.name ?>
+        <? } ?>
+      <? } ?>
+        <?= comment.description.split("\n").map( function(s){ return s.replace(/^/g,"> "); } ).join("\n") ?>
+        <? if (comment.deprecated) { ?>
+          **Deprecated**
+        <? } ?>
+        <? if (comment.author) { ?>
+          author: <?- comment.author ?>
+        <? } ?>
+        <? if (comment.version) { ?>
+          version: <?= comment.version ?>
+        <? } ?>
+        <? if (comment.see) { ?>
+          see: <?= comment.see ?>
+        <? } ?>
+      <? if (comment.propertyTags.length > 0) { ?>
+        __properties:__
+        <? comment.propertyTags.forEach(function(propertyTag) { ?>
+          * **<?= propertyTag.joinedTypes ?>** *<?= propertyTag.name ?>* <?= propertyTag.description ?><? }) ?>
+      <? } ?>
+      <? if (comment.paramTags.length > 0) { ?>
+        __parameters:__
+        <? comment.paramTags.forEach(function(paramTag) { ?>
+          *<? if (paramTag.types.length > 0) { ?> **<?= paramTag.joinedTypes ?>**<? } ?> *<?= paramTag.name ?>* <?= paramTag.description ?><? }) ?>
+      <? } ?>
+      <? if (comment.returnTags.length > 0) { ?>
+        __returns:__
+        <? comment.returnTags.forEach(function(returnTag) { ?>
+          *<? if (returnTag.types.length > 0) { ?> **<?= returnTag.joinedTypes ?>**<? } ?> <?= returnTag.description ?>
+        <? }) ?>
+      <? } ?>
+    <? } ?>
+  <? }) ?>
+
+  <!-- End <?= doc.filename ?> -->
+
+<? }) ?>

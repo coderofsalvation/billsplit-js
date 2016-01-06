@@ -17,22 +17,24 @@ module.exports = ( () ->
   model = @
 
   ###*
-   * > `.schema`  contains validation/typeschema of the store 
-   * > `.data`    contains the consolidated data of the store 
-   * > `.adapter` contains the currently used adapter
+   * `.schema`  contains validation/typeschema of the store 
+   * `.data`    contains the consolidated data of the store 
+   * `.adapter` contains the currently used adapter
   ###
   @schema  = require './schema'
   @data    = false
   @adapter = false 
 
-  ###
-  # > `factory` is a micro-factory: slap a module on top of given data 
+  ###*
+   # `factory` is a micro-factory: slap a module on top of given data 
+   * `factory.create` returns an object after requiring `./type`-module and 
+   * extends the module with the passed data 
+   *
+   * @method factory.create
+   * @param {String} type (pass 'user' to resolve './user.js' e.g.)
+   * @param {String} data (userdata described from getUserData())
   ###
   @factory = 
-    ###
-    # `factory.create` returns an object after requiring `./type`-module and 
-    # extends the module with the passed data 
-    ###
     create: (type,data) ->
       functions = require './'+type 
       obj = clone data 
@@ -42,14 +44,19 @@ module.exports = ( () ->
       obj
   
   ###
-  # initialize model with adapter (like `adapters.Ambrogio` )
+  # initialize model with store adapter (like `adapters.Ambrogio` )
+  #     { read: function(key)
+  #       write: function(key,value)
+  #       update: function(key,value)
+  #       delete: function(key) }
+  # @param {Adapter} adapter
   ###
   @init = (adapter) ->
     @adapter = adapter
     @data = adapter.read 'balance'
-    @initStore() if not @data
+    @_initStore() if not @data
 
-  @initStore = () -> @data = {} ; @data[k] = {} for k,v of @schema.properties
+  @_initStore = () -> @data = {} ; @data[k] = {} for k,v of @schema.properties
 
   ###
   # Updates/Writes model `data` to adapter 
@@ -58,6 +65,7 @@ module.exports = ( () ->
 
   ###*
    * @return user object (-functions)
+   * @param {String} name of user
   ###
   @getUserData      = (name) -> 
     result = filter( eq {name:name}, @getDataFlat @data )

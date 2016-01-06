@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('./../node_modules/markdox/node_modules/commander')
+  , util = require('util')
+  , format = util.format
+  , markdox = require('./../node_modules/markdox');
+
+// options
+
+program
+  .version(markdox.version)
+  .usage('[options...] files...')
+  .option('-o, --output <filepath>', 'specify filepath to output [/path/to/output.md]', String, process.cwd() + '/output.md');
+
+// examples
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ markdox myfile.js');
+  console.log('    $ markdox myfile1.js myfile2.js');
+  console.log('');
+});
+
+// parse argv
+program.parse(process.argv);
+
+// Process markdox
+opts = {
+  output: program.output,
+  template: __dirname + "/markdox.template.ejs"
+}
+markdox.process(program.args, opts, function(){
+  console.log('generated '+opts.output );
+});
