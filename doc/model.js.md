@@ -7,13 +7,13 @@
 > eventually gets written/read from a store.
 > It uses an adapter instead writing directly to the store.
 
-## schema
+#### schema
 
 > `.schema`  contains validation/typeschema of the store 
 > `.data`    contains the consolidated data of the store 
 > `.adapter` contains the currently used adapter
 
-## factory.create(type, data)
+#### factory.create(type, data)
 
 > `factory` is a micro-factory: slap a module on top of given data 
 > `factory.create` returns an object after requiring `./type`-module and 
@@ -24,7 +24,7 @@ __parameters:__
 * **String** *type* (pass 'user' to resolve './user.js' e.g.)
 * **String** *data* (userdata described from getUserData())
 
-## init(adapter)
+#### init(adapter)
 
 > initialize model with store adapter (like `adapters.Ambrogio` )
 >     { read: function(key)
@@ -36,11 +36,11 @@ __parameters:__
 
 * **Adapter** *adapter* 
 
-## save()
+#### save()
 
 > Updates/Writes model `data` to adapter
 
-## getUserData(name)
+#### getUserData(name)
 
 > 
 
@@ -52,7 +52,7 @@ __returns:__
 
 * user object (-functions)
 
-## createUser
+#### createUser
 
 > create a user
 > 
@@ -64,11 +64,15 @@ __returns:__
       "owes": []
     }
 
+__parameters:__
+
+* **Object** *minimum* userdata (See above)
+
 __returns:__
 
 * user object (+functions) or null (see schema)
 
-## getUserById()
+#### getUserById()
 
 > 
 
@@ -76,43 +80,59 @@ __returns:__
 
 * user object (+functions) or null
 
-## createUser
+#### createUser
 
 > 
+
+__parameters:__
+
+* **Object** *username* 
 
 __returns:__
 
 * user object (+functions)
 
-## getUser
+#### getUser
 
 > 
+
+__parameters:__
+
+* **String** *username* 
 
 __returns:__
 
 * user object (+functions)
 
-## getOrCreateUser
+#### getOrCreateUser
 
 > 
+
+__parameters:__
+
+* **String** *username* 
 
 __returns:__
 
 * user object (+functions)
 
-## getUsers
+#### getUsers
 
 > 
+
+__parameters:__
+
+* **Array** *usernames* 
 
 __returns:__
 
 * Array with user objects (+functions)
 
-## getDataFlat()
+#### getDataFlat()
 
 > returns `data` store with expanded aliases of names
 
-## bindAll()
+#### bindAll()
 
 > this bind functions to itself to preserve `this` ref
 

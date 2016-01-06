@@ -3,7 +3,7 @@
 <!-- Start lib/user.js -->
 ## lib/user.js
 
-## splitBill(amount, debtor, user, strings,)
+#### splitBill(amount, debtor, user, strings,)
 
 > performs billsplitting f
 

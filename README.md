@@ -6,6 +6,11 @@ billsplitting module
 
     npm install billsplit-js
 
+and then 
+
+    model = require('billsplit-js')
+    model.init(...)
+
 ## Asciiart!!!!
 
     module.exports

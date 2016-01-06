@@ -78,7 +78,7 @@ module.exports = ( () ->
    *
    * $(.hooks/printjson lib/schema.js properties.user)
    *
-   * @params {Object} minimum userdata (See above)
+   * @param {Object} minimum userdata (See above)
    * @return user object (+functions) or null (see schema)
   ###
   @createUser       = typesafe @schema.properties.user, (user) ->
@@ -93,26 +93,26 @@ module.exports = ( () ->
   @getUserById        = (id) -> @getDataFlat(@data).filter eq {id: id}
 
   ###*
-   * @params {Object} username
+   * @param {Object} username
    * @return user object (+functions)
   ###
   @factory.createUser = curry(@factory.create)('user')
 
   ###*
-   * @params {String} username
+   * @param {String} username
    * @return user object (+functions)
   ###
   @getUser            = pipe @getUserData.bind(@), @factory.createUser
  
 
   ###*
-   * @params {String} username
+   * @param {String} username
    * @return user object (+functions)
   ###
   @getOrCreateUser    = either @getUser.bind(@), @createUserByName.bind(@)
   
   ###*
-   * @params {Array} usernames
+   * @param {Array} usernames
    * @return Array with user objects (+functions)
   ###
   @getUsers           = map( pipe @getOrCreateUser )
