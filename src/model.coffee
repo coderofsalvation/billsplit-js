@@ -57,10 +57,7 @@ module.exports = ( () ->
   @save = () -> @adapter.write 'treasure', @data
 
   ###*
-   * User functions :
-   * > `getUserData(name)` returns user object (-functions)
-   * > `createUserByName(name)` returns user object (+functions)
-   * > `createUser(user)` returns user object (+functions) after passing userdata [see schema](schema.js.md)
+   * @return user object (-functions)
   ###
   @getUserData      = (name) -> 
     result = filter( eq {name:name}, @getDataFlat @data )
@@ -113,7 +110,7 @@ module.exports = ( () ->
   @getUsers           = map( pipe @getOrCreateUser )
 
   ###*
-   * > `getDataFlat()` returns store with expanded aliases of names
+   * returns `data` store with expanded aliases of names
   ###
   @getDataFlat        = () ->
     data = clone @data

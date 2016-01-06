@@ -76,10 +76,7 @@ Updates/Writes model `data` to adapter
 
 ## getUserData({})
 
-User functions :
-> `getUserData(name)` returns user object (-functions)
-> `createUserByName(name)` returns user object (+functions)
-> `createUser(user)` returns user object (+functions) after passing userdata [see schema](schema.js.md)
+Description
 
 ### Params:
 
@@ -106,7 +103,6 @@ Description
 create a user
 
 generated from `properties.user` in [schemafile lib/schema.js](../lib/schema.js) :
-
 
     {
       "aliases": [],
@@ -156,7 +152,7 @@ Description
 
 ## getDataFlat()
 
-> `getDataFlat()` returns store with expanded aliases of names
+returns `data` store with expanded aliases of names
 
 ### Return:
 
