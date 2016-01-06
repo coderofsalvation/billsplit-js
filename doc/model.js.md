@@ -64,7 +64,7 @@ __returns:__
 
 <hr/>
 
-#### createUser(userdata)(minimum)
+#### createUser(userdata)(userdata)
 
 > create a user
 > 
@@ -77,7 +77,7 @@ __returns:__
 
 __parameters:__
 
-* **Object** *minimum* userdata (See above)
+* **Object** *userdata* (see json above)
 
 __returns:__
 
