@@ -14,7 +14,7 @@ __parameters:__
 * **Array** *user* objects
 * **Array** *strings,* (optional)
 
-<hr>
+<hr/>
 
 > Strategy:
 > 
@@ -22,7 +22,7 @@ __parameters:__
 > 2. check if we owe something to anybody (and pay that)
 > 3. apply split ratio on remaining amount
 
-<hr>
+<hr/>
 
 <!-- End lib/user.js -->
 

@@ -78,6 +78,7 @@ module.exports = ( () ->
    *
    * $(.hooks/printjson lib/schema.js properties.user)
    *
+   * @method createUser(userdata)
    * @param {Object} minimum userdata (See above)
    * @return user object (+functions) or null (see schema)
   ###

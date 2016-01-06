@@ -5,7 +5,7 @@ module.exports =
       type: "object"
       required: true
       properties:
-        "name":     type: "string", required: true
+        "name":     type: "string", required: true, default: "John Doe"
         "aliases":  type: "array",  required: true, default: [], items: { type: "string", required: true }
         "currency": type: "string", required: true, default: "US dollar", enum: ["US dollar"]
         "owes": type: "array", default: [], items: [{

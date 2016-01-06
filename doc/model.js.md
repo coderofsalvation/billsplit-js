@@ -7,7 +7,7 @@
 > eventually gets written/read from a store.
 > It uses an adapter instead writing directly to the store.
 
-<hr>
+<hr/>
 
 #### schema
 
@@ -15,7 +15,7 @@
 > `.data`    contains the consolidated data of the store 
 > `.adapter` contains the currently used adapter
 
-<hr>
+<hr/>
 
 #### factory.create(type, data)
 
@@ -28,7 +28,7 @@ __parameters:__
 * **String** *type* (pass 'user' to resolve './user.js' e.g.)
 * **String** *data* (userdata described from getUserData())
 
-<hr>
+<hr/>
 
 #### init(adapter)
 
@@ -42,13 +42,13 @@ __parameters:__
 
 * **Adapter** *adapter* 
 
-<hr>
+<hr/>
 
 #### save()
 
 > Updates/Writes model `data` to adapter
 
-<hr>
+<hr/>
 
 #### getUserData(name)
 
@@ -62,15 +62,14 @@ __returns:__
 
 * user object (-functions)
 
-<hr>
+<hr/>
 
-#### createUser
+#### createUser(userdata)(minimum)
 
 > create a user
 > 
-> generated from `properties.user` in [schemafile lib/schema.js](../lib/schema.js) :
-
-    {
+>     {
+      "name": "John Doe",
       "aliases": [],
       "currency": "US dollar",
       "owes": []
@@ -84,7 +83,7 @@ __returns:__
 
 * user object (+functions) or null (see schema)
 
-<hr>
+<hr/>
 
 #### getUserById()
 
@@ -94,7 +93,7 @@ __returns:__
 
 * user object (+functions) or null
 
-<hr>
+<hr/>
 
 #### createUser
 
@@ -108,7 +107,7 @@ __returns:__
 
 * user object (+functions)
 
-<hr>
+<hr/>
 
 #### getUser
 
@@ -122,7 +121,7 @@ __returns:__
 
 * user object (+functions)
 
-<hr>
+<hr/>
 
 #### getOrCreateUser
 
@@ -136,7 +135,7 @@ __returns:__
 
 * user object (+functions)
 
-<hr>
+<hr/>
 
 #### getUsers
 
@@ -150,18 +149,18 @@ __returns:__
 
 * Array with user objects (+functions)
 
-<hr>
+<hr/>
 
 #### getDataFlat()
 
 > returns `data` store with expanded aliases of names
 
-<hr>
+<hr/>
 
 #### bindAll()
 
 > this bind functions to itself to preserve `this` ref
 
-<hr>
+<hr/>
 
 <!-- End lib/model.js -->
