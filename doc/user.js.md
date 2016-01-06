@@ -14,11 +14,15 @@ __parameters:__
 * **Array** *user* objects
 * **Array** *strings,* (optional)
 
+<hr>
+
 > Strategy:
 > 
 > 1. determine the split ratio 
 > 2. check if we owe something to anybody (and pay that)
 > 3. apply split ratio on remaining amount
+
+<hr>
 
 <!-- End lib/user.js -->
 

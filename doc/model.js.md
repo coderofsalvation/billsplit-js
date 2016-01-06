@@ -7,11 +7,15 @@
 > eventually gets written/read from a store.
 > It uses an adapter instead writing directly to the store.
 
+<hr>
+
 #### schema
 
 > `.schema`  contains validation/typeschema of the store 
 > `.data`    contains the consolidated data of the store 
 > `.adapter` contains the currently used adapter
+
+<hr>
 
 #### factory.create(type, data)
 
@@ -23,6 +27,8 @@ __parameters:__
 
 * **String** *type* (pass 'user' to resolve './user.js' e.g.)
 * **String** *data* (userdata described from getUserData())
+
+<hr>
 
 #### init(adapter)
 
@@ -36,9 +42,13 @@ __parameters:__
 
 * **Adapter** *adapter* 
 
+<hr>
+
 #### save()
 
 > Updates/Writes model `data` to adapter
+
+<hr>
 
 #### getUserData(name)
 
@@ -51,6 +61,8 @@ __parameters:__
 __returns:__
 
 * user object (-functions)
+
+<hr>
 
 #### createUser
 
@@ -72,6 +84,8 @@ __returns:__
 
 * user object (+functions) or null (see schema)
 
+<hr>
+
 #### getUserById()
 
 > 
@@ -79,6 +93,8 @@ __returns:__
 __returns:__
 
 * user object (+functions) or null
+
+<hr>
 
 #### createUser
 
@@ -92,6 +108,8 @@ __returns:__
 
 * user object (+functions)
 
+<hr>
+
 #### getUser
 
 > 
@@ -103,6 +121,8 @@ __parameters:__
 __returns:__
 
 * user object (+functions)
+
+<hr>
 
 #### getOrCreateUser
 
@@ -116,6 +136,8 @@ __returns:__
 
 * user object (+functions)
 
+<hr>
+
 #### getUsers
 
 > 
@@ -128,12 +150,18 @@ __returns:__
 
 * Array with user objects (+functions)
 
+<hr>
+
 #### getDataFlat()
 
 > returns `data` store with expanded aliases of names
 
+<hr>
+
 #### bindAll()
 
 > this bind functions to itself to preserve `this` ref
+
+<hr>
 
 <!-- End lib/model.js -->
