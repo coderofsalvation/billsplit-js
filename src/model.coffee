@@ -68,6 +68,14 @@ module.exports = ( () ->
   
   @createUserByName = (name) -> @createUser extend defaults( @schema.properties.user ), {name:name}
   
+  ###*
+   * create a user
+   *
+   * $(.hooks/printjson lib/schema.js properties.user)
+   *
+   * @params {Object} minimum userdata (See above)
+   * @return user object (+functions) or null (see schema)
+  ###
   @createUser       = typesafe @schema.properties.user, (user) ->
     throw "USER_ALREADY_EXIST" if @data.user[ user.name ]?
     user.id = uuid()
@@ -75,23 +83,38 @@ module.exports = ( () ->
     @factory.createUser user
 
   ###*
-   * User FP functions :
-   * > `getUserById(id)` returns user object (+functions) or null
-   * > `factory.createUser(userdata)` returns user object (+functions)
-   * > `getOrCreateUser(name)` returns user object 
-   * > `getUsers(arr) returns user objects based on array with name-strings
-   * > `getDataFlat()` returns store with expanded aliases of names
+   * @return user object (+functions) or null
   ###
   @getUserById        = (id) -> @getDataFlat(@data).filter eq {id: id}
 
+  ###*
+   * @params {Object} username
+   * @return user object (+functions)
+  ###
   @factory.createUser = curry(@factory.create)('user')
 
+  ###*
+   * @params {String} username
+   * @return user object (+functions)
+  ###
   @getUser            = pipe @getUserData.bind(@), @factory.createUser
-  
+ 
+
+  ###*
+   * @params {String} username
+   * @return user object (+functions)
+  ###
   @getOrCreateUser    = either @getUser.bind(@), @createUserByName.bind(@)
   
+  ###*
+   * @params {Array} usernames
+   * @return Array with user objects (+functions)
+  ###
   @getUsers           = map( pipe @getOrCreateUser )
 
+  ###*
+   * > `getDataFlat()` returns store with expanded aliases of names
+  ###
   @getDataFlat        = () ->
     data = clone @data
     for k,user of data.user
@@ -99,8 +122,9 @@ module.exports = ( () ->
     data
   
   ###
-  # lets bind functions to itself to preserve `this` ref
+  # this bind functions to itself to preserve `this` ref
   ###
+
   bindAll model
   
   @

@@ -1,0 +1,11 @@
+#!/usr/bin/env coffee 
+defaults = require 'json-schema-defaults'
+try
+  json = require( process.cwd()+"/"+process.argv[2] )
+  json = eval("json."+ process.argv[3] )
+  str = JSON.stringify defaults(json), null, 2
+  lines = str.split "\n"
+  console.log "generated from `"+process.argv[3]+"` in [schemafile "+process.argv[2]+"](../"+process.argv[2]+") :\n\n"
+  console.log "    "+line for line in lines
+catch e
+  console.log "Usage: printjson <file> <jsonpath>"

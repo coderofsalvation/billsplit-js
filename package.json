@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "gendoc": "/bin/bash -c '[[ ! -d doc ]] && mkdir doc ; for i in lib/*; do node_modules/.bin/markdox $i -o ${i/lib/doc}.md ; done'",
+    "gendoc": "/bin/bash -c '[[ ! -d doc ]] && mkdir doc ; for i in lib/*; do out=${i/lib/doc}.md; node_modules/.bin/markdox $i -o $out;  done' ; bashdown doc/model.js.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "markdox": "^0.1.10",
-    "mock-stdin": "^0.3.0"
+    "mock-stdin": "^0.3.0",
+    "smartcomments": "^0.3.2"
   },
   "homepage": "https://github.com/coderofsalvation/billsplit-js#readme"
 }

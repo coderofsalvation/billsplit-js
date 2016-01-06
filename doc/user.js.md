@@ -2,16 +2,33 @@
 
 <!-- Start lib/user.js -->
 
-## splitBill(amount, debtor, user, strings,)
+## init({})
+
+Description
+
+### Params:
+
+* *{}* model
+
+### Return:
+
+* results
+
+## splitBill({}, amount, debtor, {}, {})
 
 performs billsplitting f
 
 ### Params:
 
+* *{}* model
 * **Number** *amount* 
 * **Object** *debtor* (who is providing loan)
-* **Array** *user* objects
-* **Array** *strings,* (optional)
+* *{}* lenders
+* *{}* tags
+
+### Return:
+
+* 
 
 Strategy:
 

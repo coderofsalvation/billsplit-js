@@ -22,6 +22,4 @@ billsplitting module
 ## API
 
 * [model.js](doc/model.js.md)
-* [adapters.js](doc/adapters.js.md)
-* [schema.js](doc/schema.js.md)
 * [user.js](doc/user.js.md)
