@@ -1,0 +1,34 @@
+{
+  "name": "billsplit-js",
+  "version": "1.0.0",
+  "description": "module which facilitates billsplitting",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "gendoc": "/bin/bash -c '[[ ! -d doc ]] && mkdir doc ; for i in lib/*; do node_modules/.bin/markdox $i -o ${i/lib/doc}.md ; done'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://$GITHUBUSERNAME@github.com/coderofsalvation/billsplit-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderofsalvation/billsplit-js/issues"
+  },
+  "dependencies": {
+    "easy-table": "^1.0.0",
+    "es6-promise": "^3.0.2",
+    "essentialjs": "git+https://github.com/coderofsalvation/essential.js.git#9c4dfe5fbe420c936f8aa7d9ea1d80f5eb66b896",
+    "json-schema-defaults": "^0.1.1",
+    "typeshave": "0.3.2"
+  },
+  "devDependencies": {
+    "markdox": "^0.1.10",
+    "mock-stdin": "^0.3.0"
+  },
+  "homepage": "https://github.com/coderofsalvation/billsplit-js#readme"
+}
