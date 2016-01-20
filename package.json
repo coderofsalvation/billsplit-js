@@ -24,7 +24,7 @@
     "es6-promise": "^3.0.2",
     "essentialjs": "git+https://github.com/coderofsalvation/essential.js.git#9c4dfe5fbe420c936f8aa7d9ea1d80f5eb66b896",
     "json-schema-defaults": "^0.1.1",
-    "typeshave": "0.3.2"
+    "typeshave": "0.3.22"
   },
   "devDependencies": {
     "markdox": "^0.1.10",
