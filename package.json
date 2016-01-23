@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "gendoc": "/bin/bash -c '[[ ! -d doc ]] && mkdir doc ; for i in lib/*; do out=${i/lib/doc}.md; node_modules/.bin/markdox $i -o $out;  done' ; bashdown doc/model.js.md",
+    "gendoc": "NOCOMMIT=1 .hooks/pre-commit" 
     "test": "cake test"
   },
   "repository": {

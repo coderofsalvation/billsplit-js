@@ -5,7 +5,7 @@
 ###
 
 typeshave         = require 'typeshave'
-typeshave.onError = (err) -> true #console.log JSON.stringify err,null,2 # suppress exceptions because of FP pipelines
+typeshave.onError = (err) -> console.log JSON.stringify err,null,2 # suppress exceptions because of FP pipelines
 typesafe          = typeshave.typesafe
 typeshave.verbose = 2 if process.env.DEBUG
 defaults          = require 'json-schema-defaults'
@@ -70,11 +70,11 @@ module.exports = ( () ->
   @init = typesafe 
     type: "object"
     properties:
-      read:   type: "function",
-      write:  type: "function",
-      update: type: "function",
-      delete: type: "function",
-      find:   type: "function"
+      read:   { type: "function" },
+      write:  { type: "function" },
+      update: { type: "function" },
+      delete: { type: "function" },
+      find:   { type: "function" }
   , (adapter) ->
     @adapter = adapter
     @data = adapter.read 'user'

@@ -2,7 +2,8 @@
 find src -name "*.coffee" | grep -v node_modules | while read file; do
   echo "compiling ${file/coffee$/js/g}";
   slug="$(dirname "$file")" ; outdir="${slug/src/lib}"
-  coffee -o "$outdir" -c -b --no-header "$file" ; git add "${file/coffee$/js/}";
+  coffee -o "$outdir" -c -b --no-header "$file" ; 
+  [[ ! -n $NOCOMMIT ]] && git add "${file/coffee$/js/}";
 done
 
 # generate docs

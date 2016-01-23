@@ -20,7 +20,7 @@ module.exports =
   # @api public
   ###
   splitBill: (model, amount, lenders, tags ) ->
-    if validate {amount:amount,lenders:lenders,tags:tags}, {
+    if validate arguments, {
         amount:   type: "number", required: true
         lenders:  type: "array",  required: true, items: [{type:"string"}]
         tags:     type: "array",  items: [{type:"string"}]

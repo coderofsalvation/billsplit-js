@@ -4,7 +4,7 @@ billsplitting module
 
 ## Usage
 
-    npm install billsplit-js
+    npm install billsplit-js --production
 
 and then 
 
@@ -29,3 +29,23 @@ and then
                                │
                                └─ balance
 
+## Seqdiagram!
+
+<!-- https://www.websequencediagrams.com/?lz=dGl0bGUgQklMTFNQTElULUpTIEJBU0lDUwoKY2xpZW50LT5tb2RlbDogAAIFLmluaXQoYWRhcHRlcikKABYFLT4ACQc6IAAZBQAOCXVzZXI6IHVzZXIuYmlsbFNwbGl0KCAxMC4wLCBbIkEiLCJCIl0gKQpub3RlIG92ZXIAXgYsADIGKiBjcmVhdGVzAD0FcyBhbmQgZGl2aWRlc1xuYW1vdW50AC8GY3VycmVudABkBVxuICsAbQUgQQABCEIKdXNlcgCBBghwYXliYWNrTG9hbigpAA0NbGVuZE1vbmV5AA8JAIFOCXNhdmUAJQkAghEGOiBzaG93IHJlc3BvbnNlCg&s=napkin -->
+
+<img alt="" src="https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgQklMTFNQTElULUpTIEJBU0lDUwoKY2xpZW50LT5tb2RlbDogAAIFLmluaXQoYWRhcHRlcikKABYFLT4ACQc6IAAZBQAOCXVzZXI6IHVzZXIuYmlsbFNwbGl0KCAxMC4wLCBbIkEiLCJCIl0gKQpub3RlIG92ZXIAXgYsADIGKiBjcmVhdGVzAD0FcyBhbmQgZGl2aWRlc1xuYW1vdW50AC8GY3VycmVudABkBVxuICsAbQUgQQABCEIKdXNlcgCBBghwYXliYWNrTG9hbigpAA0NbGVuZE1vbmV5AA8JAIFOCXNhdmUAJQkAghEGOiBzaG93IHJlc3BvbnNlCg&s=napkin">
+
+## Developer notes:
+
+#### schema
+All data (like userdata) is typesafe and protected by [schema](https://github.com/coderofsalvation/billsplit-js/blob/master/lib/schema.js), when adding properties please :
+
+* check http://json-schema.org for more info on the format
+* don't forget to provide 'default' values for required properties, so createUser() won't nag about schema errors.
+
+#### automatic documentation
+
+Run __'npm run-script gendoc'__ or simply commit files to generate/update markdown documentation, it will:
+
+* add documentation-comments of all undocumented functions in .js files 
+* convert these .js files to markdown in __/doc__
