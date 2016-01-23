@@ -5,6 +5,8 @@ find src -name "*.coffee" | grep -v node_modules | while read file; do
   coffee -o "$outdir" -c -b --no-header "$file" ; 
   [[ ! -n $NOCOMMIT ]] && git add "${file/coffee$/js/}";
 done
+coffee -c -b --no-header test/test.coffee
+git add test/test.js
 
 # generate docs
 [[ ! -d doc ]] && mkdir doc 

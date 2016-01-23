@@ -9,7 +9,9 @@ billsplitting module
 and then 
 
     model = require('billsplit-js')
-    model.init(...)
+    model.init(...) # set storage adapter
+
+> see [test.js](https://github.com/coderofsalvation/billsplit-js/blob/master/test/test.js) for more usage examples
 
 ## API
 
