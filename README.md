@@ -49,3 +49,7 @@ Run __'npm run-script gendoc'__ or simply commit files to generate/update markdo
 
 * add documentation-comments of all undocumented functions in .js files 
 * convert these .js files to markdown in __/doc__
+
+#### Travis continues integration
+
+In order to keep the buildbage green, make sure `cake test` will have exitcode 0
