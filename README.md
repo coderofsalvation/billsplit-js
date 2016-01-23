@@ -41,7 +41,7 @@ and then
 All data (like userdata) is typesafe and protected by [schema](https://github.com/coderofsalvation/billsplit-js/blob/master/lib/schema.js), when adding properties please :
 
 * check http://json-schema.org for more info on the format
-* don't forget to provide 'default' values for required properties, so createUser() won't nag about schema errors.
+* don't forget to provide 'default' values for required properties, otherwise functions will nag about schema errors.
 
 #### automatic documentation
 
