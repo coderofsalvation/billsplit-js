@@ -33,9 +33,12 @@ module.exports =
       # . check if we owe something to anybody (and pay that from our share)
       # . apply split ratio on remaining amount 
       ###
-      user  = @
-      lenders_users = model.getUsers( lenders ).filter pipe( pluck('name'), notEq( @name ) )
-      ratio = 1/(lenders.length+1)
+      user = this
+      ratio = 1 / (lenders.length + 1)
+      lenders_users = model.getUsers(lenders).filter(pipe(pluck('name'), notEq(@name)))
+      model.getUsers(lenders).filter(pipe(pluck('name'))).map (lender) ->
+        if lender.name == @name
+          amount -= amount * ratio
       @lendMoney lenders_users, (amount * ratio)
       model.data.user[ @name ] = @
       model.save()
