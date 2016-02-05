@@ -54,4 +54,4 @@ Run __'npm run-script gendoc'__ or simply commit files to generate/update markdo
 
 #### Travis continues integration
 
-In order to keep the buildbage green, make sure `cake test` will have exitcode 0
+In order to keep the buildbadge green, make sure `cake test` will have exitcode 0
